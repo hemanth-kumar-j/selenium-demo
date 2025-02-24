@@ -1,31 +1,33 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-
+# Initialize WebDriver
 driver = webdriver.Chrome()
 driver.maximize_window()
 driver.get("https://the-internet.herokuapp.com/nested_frames")
 
-# Switching to TOP Frame
 
-driver.switch_to.frame("frame-top")
+def switch_to_frame(frame_name):
+    """Switch to a given frame by name."""
+    driver.switch_to.frame(frame_name)
 
-# Switching to MIDDLE Frame
 
-driver.switch_to.frame("frame-middle")
+def get_frame_content(locator):
+    """Retrieve text content from a frame."""
+    return driver.find_element(
+        By.ID if locator == "content" else By.TAG_NAME, value=locator
+    ).text
 
-content = driver.find_element(By.ID, value="content").text
-print("Content in middle frame", content)
 
-# Switching to Default Content
+# Navigate through frames and extract content
+switch_to_frame("frame-top")
+switch_to_frame("frame-middle")
+print("Content in middle frame:", get_frame_content("content"))
 
+# Return to main document and switch to bottom frame
 driver.switch_to.default_content()
+switch_to_frame("frame-bottom")
+print("Content in bottom frame:", get_frame_content("body"))
 
-# Switching to Bottom Frame
-
-driver.switch_to.frame("frame-bottom")
-
-content_bottom = driver.find_element(By.TAG_NAME, value="body").text
-print("Content in bottom frame", content_bottom)
-
+# Close browser
 driver.quit()

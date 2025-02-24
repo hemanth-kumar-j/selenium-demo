@@ -1,33 +1,33 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-# Initialize WebDriver (for Chrome)
+# Constants
+LOGIN_URL = "https://www.saucedemo.com/"
+USERNAME = "standard_user"
+PASSWORD = "secret_sauce"
+
+# Initialize WebDriver
 driver = webdriver.Chrome()
 driver.maximize_window()
-username = "standard_user"
-password = "secret_sauce"
-login_url = "https://www.saucedemo.com/"
-driver.get(login_url)
-# Open a website
-# driver.get("https://www.google.com")
-# driver.get("http://selenium.dev/")
-username_field = driver.find_element(By.ID, value="user-name")
-password_field = driver.find_element(By.ID, value="password")
+driver.get(LOGIN_URL)
 
-username_field.send_keys(username)
-password_field.send_keys(password)
+# Locate input fields & login button
+username_field = driver.find_element(By.ID, "user-name")
+password_field = driver.find_element(By.ID, "password")
+login_button = driver.find_element(By.ID, "login-button")
 
-login_button = driver.find_element(By.ID, value="login-button")
-assert not login_button.get_attribute("disabled")
+# Perform login actions
+username_field.send_keys(USERNAME)
+password_field.send_keys(PASSWORD)
+assert not login_button.get_attribute("disabled"), "Login button should not be disabled"
 login_button.click()
 
-success_element = driver.find_element(By.CSS_SELECTOR, value=".title")
-assert success_element.text == "Products"
+# Verify successful login
+success_element = driver.find_element(By.CSS_SELECTOR, ".title")
+assert success_element.text == "Products", "Login failed or incorrect page loaded"
 
-# Print the page title
-title = driver.title
-print("Page title is:", title)
-# assert "Selenium" in title
+# Print page title
+print(f"Page title is: {driver.title}")
 
-# Close the browser
+# Close browser
 driver.quit()

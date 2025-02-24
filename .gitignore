@@ -1,0 +1,32 @@
+# Ignore virtual environments
+venv/
+env/
+lib/
+lib64/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore logs and temp files
+*.log
+*.tmp
+
+# Ignore IDE/editor files
+.vscode/
+.idea/
+*.swp
+
+# Ignore Selenium WebDriver executables (if downloaded in the project)
+chromedriver
+geckodriver
+
+# Ignore practice directory
+selenium_practice/
+
