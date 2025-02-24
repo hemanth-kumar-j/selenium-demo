@@ -53,9 +53,6 @@ Example:
 python login.py
 ```
 
-## 📜 License
-This project is for learning purposes. Feel free to modify and use it.
-
 ---
 
 🚀 Happy Testing with Selenium!
