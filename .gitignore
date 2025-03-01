@@ -28,5 +28,5 @@ chromedriver
 geckodriver
 
 # Ignore practice directory
-selenium_practice/
+tests/selenium_practice/
 
