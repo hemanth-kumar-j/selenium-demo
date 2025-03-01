@@ -111,6 +111,6 @@ if __name__ == "__main__":
                 print(f"\n🔹 Running Test: {test_name}")
                 test_cases[test_name]()
             else:
-                print(f"❌ Invalid test case: {test_name}. Use 'simple' or 'dropdown'.")
+                print(f"Invalid test case: {test_name}. Use 'simple' or 'dropdown'.")
 
     driver.quit()
