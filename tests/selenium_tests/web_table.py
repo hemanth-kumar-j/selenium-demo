@@ -33,4 +33,3 @@ if not found:
 
 # Close the browser
 browser.quit()
-

@@ -14,6 +14,7 @@ browser.get(url)
 all_links = browser.find_elements(By.TAG_NAME, "a")
 print(f"Total number of links on the page: {len(all_links)}")
 
+
 # Function to check for broken links
 def check_broken_link(href, session):
     """Checks if a link is broken by sending a request and verifying the status code."""
@@ -27,6 +28,7 @@ def check_broken_link(href, session):
     except requests.RequestException as e:
         print(f"Error checking link {href}: {e}")
 
+
 # Use a single session for efficient requests
 with requests.Session() as session:
     for link in all_links:
@@ -34,4 +36,3 @@ with requests.Session() as session:
 
 # Close the browser
 browser.quit()
-

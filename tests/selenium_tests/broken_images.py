@@ -7,6 +7,7 @@ browser = webdriver.Chrome()
 browser.maximize_window()
 browser.get("https://the-internet.herokuapp.com/broken_images")
 
+
 def find_broken_images():
     """Finds and returns a list of broken images on the webpage."""
     broken_images = []
@@ -16,6 +17,7 @@ def find_broken_images():
             broken_images.append(src)
 
     return broken_images
+
 
 # Get broken images
 broken_images = find_broken_images()
@@ -30,4 +32,3 @@ else:
 
 # Close the browser
 browser.quit()
-
