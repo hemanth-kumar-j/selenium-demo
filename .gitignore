@@ -30,3 +30,5 @@ geckodriver
 # Ignore practice directory
 tests/selenium_practice/
 
+# Ignore downloaded files
+downloads/
