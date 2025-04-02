@@ -32,3 +32,6 @@ tests/selenium_practice/
 
 # Ignore downloaded files
 downloads/
+
+# Ignore screenshots
+*.png
