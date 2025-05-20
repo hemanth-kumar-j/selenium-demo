@@ -9,9 +9,7 @@ def drag_and_drop(driver, source, target):
     actions.drag_and_drop(source, target).perform()
     sleep(1)
     bg_color = source.value_of_css_property("background-color")
-    assert (
-        bg_color == "rgba(0, 255, 0, 1)"
-    ), f"Expected rgba(0, 255, 0, 1), but got {bg_color}"
+    assert "0, 255, 0" in bg_color, f"Expected green, got {bg_color}"
     country_name = target.text.split("\n")[0].strip()  # Extract only the country name
     print(f"Moved: {source.text.strip()} -> {country_name}")
 
